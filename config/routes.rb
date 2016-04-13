@@ -1,3 +1,3 @@
 KcComments::Engine.routes.draw do
-  root 'home#index'
+  #root 'home#index'
 end
