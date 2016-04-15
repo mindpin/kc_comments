@@ -21,8 +21,24 @@ Or install it yourself as:
     $ gem install kc_comments
 
 ## Usage
+include KcComments::Comment::HostableMethods
+```ruby
+class Book
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  include KcComments::Comment::HostableMethods
 
-TODO: Write usage instructions here
+  field :name, type: String
+end
+```
+
+how to comment
+```ruby
+book = Book.create(name: "test_1")
+
+comment = book.comments.create(:content => "太好看啦", :user => user)
+ => #<KcComments::Comment _id: 5710633bd4d1235415000002, created_at: 2016-04-15 03:42:51 UTC, updated_at: 2016-04-15 03:42:51 UTC, content: "太好看啦", user_id: BSON::ObjectId('571062e0d4d1235415000000'), host_type: "Book", host_id: BSON::ObjectId('57106307d4d1235415000001')>
+```
 
 ## Development
 
